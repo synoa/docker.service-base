@@ -6,7 +6,7 @@ RUN ln -fs /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 
 # Install Tomcat native performance library
 RUN apt update
-RUN apt install libtcnative-1
+RUN apt install libtcnative-1 -y
 
 # Clean up apt cache and repositories
 RUN apt autoremove --purge -y
