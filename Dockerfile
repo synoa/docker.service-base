@@ -4,11 +4,14 @@ LABEL maintainer="Synoa GmbH <we@synoa.de>"
 # Set the Timezone to CET/CEST
 RUN ln -fs /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 
+# So we don't need to change all Dockerfiles if we change the java version
+RUN ln -fs /usr/local/openjdk-11/bin/java /usr/bin/java
+
 # Install Tomcat native performance library
 RUN apt update
 RUN apt install libtcnative-1 -y
 
-# Clean up apt cache and repositories
+# Clean up apt cache and repositories to be slim again
 RUN apt autoremove --purge -y
 RUN apt clean autoclean
 RUN rm -rf /var/lib/{apt,dpkg,cache,log}/
