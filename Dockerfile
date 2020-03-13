@@ -7,6 +7,9 @@ RUN ln -fs /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 # So we don't need to change all Dockerfiles if we change the java version
 RUN ln -fs /usr/local/openjdk-11/bin/java /usr/bin/java
 
+# Set caching of DNS entries to 5 seconds. Default is forever!! https://stackoverflow.com/a/48808685/6504528
+RUN echo "networkaddress.cache.ttl=5" >> $JAVA_HOME/conf/security/java.security
+
 # Install Tomcat native performance library
 RUN apt update
 RUN apt install libtcnative-1 -y
