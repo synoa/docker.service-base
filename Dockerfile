@@ -1,11 +1,11 @@
-FROM openjdk:11-jre-slim
+FROM openjdk:8-jre-slim
 LABEL maintainer="Synoa GmbH <we@synoa.de>"
 
 # Set the Timezone to CET/CEST
 RUN ln -fs /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 
 # So we don't need to change all Dockerfiles if we change the java version
-RUN ln -fs /usr/local/openjdk-11/bin/java /usr/bin/java
+RUN ln -fs /usr/local/openjdk-8/bin/java /usr/bin/java
 
 # Set caching of DNS entries to 5 seconds. Default is forever!! https://stackoverflow.com/a/48808685/6504528
 RUN echo "networkaddress.cache.ttl=5" >> $JAVA_HOME/conf/security/java.security
