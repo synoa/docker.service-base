@@ -5,4 +5,4 @@ Base Docker Image for Services.
 
 If you want to see the source of an Image you need to switch to the branch with the same name as the tag of the Image.
 
-E.g. the Dockerfile of the image `docker.service-base:java` can be found in the (java)[https://github.com/synoa/docker.service-base/tree/java] branch.
+E.g. the Dockerfile of the image `docker.service-base:java` can be found in the [java](https://github.com/synoa/docker.service-base/tree/java) branch.
