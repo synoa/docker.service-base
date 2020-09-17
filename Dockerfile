@@ -3,6 +3,7 @@ LABEL maintainer="Synoa GmbH <we@synoa.de>"
 
 # Set the Timezone to CET/CEST
 RUN ln -fs /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+RUN dpkg-reconfigure --frontend noninteractive tzdata
 
 # So we don't need to change all Dockerfiles if we change the java version
 RUN ln -fs /usr/local/openjdk-11/bin/java /usr/bin/java
